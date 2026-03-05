@@ -1,0 +1,51 @@
+@import "tailwindcss";
+
+:root {
+  --font-inter: 'Inter', sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html,
+body {
+  height: 100%;
+  overflow: hidden;
+  font-family: var(--font-inter), sans-serif;
+  background: #020b18;
+  color: #e2e8f0;
+}
+
+/* ── Glassmorphism card ──────────────────────────────────────────────────────── */
+.glass-card {
+  background: rgba(2, 18, 38, 0.72);
+  backdrop-filter: blur(16px) saturate(180%);
+  -webkit-backdrop-filter: blur(16px) saturate(180%);
+  border: 1px solid rgba(99, 179, 237, 0.12);
+  border-radius: 14px;
+  box-shadow:
+    0 4px 32px 0 rgba(0, 180, 255, 0.06),
+    inset 0 1px 0 rgba(255, 255, 255, 0.05);
+}
+
+/* ── Canvas fill ─────────────────────────────────────────────────────────────── */
+canvas {
+  display: block;
+  width: 100% !important;
+  height: 100% !important;
+  touch-action: none;
+}
+
+/* ── Scrollbar (hidden globally for immersive UX) ───────────────────────────── */
+::-webkit-scrollbar { display: none; }
+
+/* ── Custom animations ───────────────────────────────────────────────────────── */
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50%       { transform: translateY(-6px); }
+}
+
+.animate-float { animation: float 3s ease-in-out infinite; }
