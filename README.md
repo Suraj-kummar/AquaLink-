@@ -1,329 +1,142 @@
-# 🌊 AquaLink — Ocean Digital Twin Dashboard
+<div align="center">
+  <h1>🌊 AquaLink — Ocean Digital Twin Dashboard</h1>
+  
+  <p><strong>Real-time ocean monitoring. Live 3D visualization. Powered by IoT smart buoys.</strong></p>
 
-> **Real-time ocean monitoring. Live 3D visualization. Powered by IoT smart buoys.**
+  <div>
+    <img src="https://img.shields.io/badge/Next.js-000?logo=nextdotjs&logoColor=white" alt="Next.js" />
+    <img src="https://img.shields.io/badge/React_19-20232A?logo=react&logoColor=61DAFB" alt="React" />
+    <img src="https://img.shields.io/badge/Three.js-000?logo=threedotjs&logoColor=white" alt="Three.js" />
+    <img src="https://img.shields.io/badge/TypeScript-007ACC?logo=typescript&logoColor=white" alt="TypeScript" />
+    <img src="https://img.shields.io/badge/Tailwind_CSS-38B2AC?logo=tailwind-css&logoColor=white" alt="Tailwind" />
+  </div>
+  <br />
+</div>
 
-AquaLink is a browser-based **Digital Twin** of the ocean — a live, interactive 3D globe that mirrors the real state of the sea by ingesting data from smart buoy sensors deployed across the world's oceans. It turns raw telemetry into instant, visual intelligence for marine scientists, coast guards, reef conservationists, and offshore operators.
-
----
-
-## 📸 Dashboard Screenshots
-
-### 🌐 Main Dashboard — Full Overview
 ![Main Dashboard](public/ss_01_main.png)
 
-### 🔍 Zoomed In — Buoy Detail
-![Zoomed In View](public/ss_02_zoomed.png)
-
-### 🔄 Globe Rotated — Pacific Ocean View
-![Pacific Ocean View](public/ss_03_rotated.png)
-
-### 📍 Smart Buoy — Live Telemetry Panel
-![Buoy Panel Open](public/ss_04_buoy_panel.png)
-
-### 🎛️ Leva Debug Panel — Real-Time Shader Controls
-![Leva Debug Controls](public/ss_05_leva.png)
-
-### 🌊 Maximum Wave Height — Shader in Action
-![Max Wave Height](public/ss_06_max_waves.png)
-
-### 🔴 Alert Buoys — Heat Stress Detected
-![Alert Buoys View](public/ss_07_alert_buoys.png)
-
-### 📊 HUD Stats — Live Buoy Counts
-![HUD Stats](public/ss_08_hud_stats.png)
-
-### 🌡️ Heat Stress Index Legend
-![Heat Stress Legend](public/ss_09_heat_legend.png)
-
-### ✨ Globe in Deep Space — Starfield View
-![Stars View](public/ss_10_stars.png)
+AquaLink is a browser-based **Digital Twin** of the ocean — an interactive 3D globe that mirrors the real state of the sea by ingesting telemetry from smart buoy sensors. It turns raw data into instant, visual intelligence for marine scientists, reef conservationists, and offshore operators.
 
 ---
 
+## 🌍 The Problem We Solve: From Spreadsheets to Intelligence
 
-## 🌍 The Real-World Problem We Solve
+### ❌ The Old Way (Reactionary)
+It’s Tuesday morning. A marine biologist at a coastal protection agency receives an email with 80 CSV files—one from each buoy deployed overnight. By 10 AM, she opens spreadsheet #47 and notices buoy `AUL-047` recorded a water temperature of **31.8°C** at 2 AM. That’s above the coral bleaching threshold. 
 
-### Imagine this scenario:
+She escalates the finding. The response team is dispatched on Thursday. By then, the coral has already begun bleaching.
 
-> It's Tuesday morning. A marine biologist at the **Great Barrier Reef Marine Park Authority** receives an email with 80 CSV files — one per buoy — from the overnight data dump. She opens spreadsheet #47 and notices buoy `AUL-047` recorded a water temperature of **31.8°C** at 2 AM. That's above the coral bleaching threshold.
->
-> She escalates it. By the time the response team is dispatched — it's Thursday. The coral in that section has already started bleaching.
+### ✅ The AquaLink Way (Proactive)
+She opens the AquaLink dashboard at 7 AM. The globe is spinning. Buoy `AUL-047` is **flashing red**, surrounded by a warm-orange heat zone on the water. She clicks the buoy—live temperature, salinity, and depth pop up instantly. She hovers over a glowing teal pin nearby: *Great Barrier Reef (12km away)*.
 
-**With AquaLink:**
+The response team is dispatched by 7:15 AM.
 
-> She opens the dashboard at 7 AM. Buoy `AUL-047` is **flashing red on the globe**, surrounded by a warm-orange heat zone. She clicks it — temperature, salinity, depth pop up instantly. She sees the Great Barrier Reef marker nearby is only 12 km away. Response dispatched by 7:15 AM.
-
-**That's the difference between a spreadsheet and a Digital Twin.**
-
----
-
-## ✨ Features
-
-### 🌐 3D Interactive Globe
-- Full Earth rendered with **NASA satellite textures** (atmosphere, normal map, specular)
-- Realistic **atmosphere glow shader** (additive blending rim light)
-- Slow realistic rotation; **drag to rotate, scroll to zoom**, smooth damping
-- 6,000-star deep space background
-
-### 🌡️ Live Heat Stress Visualization
-- Ocean surface overlaid with a **custom GLSL shader** that maps water temperature to color
-- Color ramp: 🔵 Cold polar → 🩵 Cool → 🟢 Temperate → 🟡 Warm → 🔴 Heat stress
-- Animated ripple effect on the surface for visual realism
-- Fresnel rim glow at ocean horizon angles
-
-### 📍 Smart Buoy Markers
-- Up to **80+ buoys** rendered as a single GPU draw call using `InstancedMesh`
-- Color-coded by status:
-  - 🩵 **Cyan** = Normal (operating within thresholds)
-  - 🔴 **Red** = Alert (temperature/salinity breach detected)
-  - ⬜ **Grey** = Offline (signal lost or hardware fault)
-- **Click any buoy** → slide-in telemetry panel showing live temperature, salinity, depth, GPS coords, and last-updated timestamp
-- Selected buoy **pulses** to confirm selection
-
-### 🪸 Coral Reef Markers
-- 5 major reef systems pinned on the globe:
-  - Great Barrier Reef, Coral Triangle, Caribbean Reef System, Maldives Atoll, Red Sea Reef
-- Glowing teal pins with animated pulse
-- **Hover → tooltip** label appears so operators know what reef they're near
-
-### 🎛️ Real-Time Debug Controls (Leva)
-- Floating control panel with 3 live sliders:
-  - **Wave Height** — controls ocean surface wave amplitude (0 → 0.02)
-  - **Wave Freq** — controls wave frequency (2 → 20)
-  - **Opacity** — controls water surface transparency (0.4 → 1.0)
-- Changes reflect on the globe **immediately** (every animation frame)
-
-### 🔄 Live Data Polling
-- Buoy telemetry **auto-refreshes every 30 seconds** in the background
-- No page reload needed — data flows continuously like a real monitoring system
-- Graceful cleanup on component unmount (no memory leaks)
-
-### 🛡️ Error Boundary
-- If the WebGL engine or any 3D component crashes, a **styled fallback screen** appears instead of a blank white page
-- Shows the error message and a **"🔄 Reload Dashboard"** button
-
-### 📱 Mobile Responsive
-- HUD panels adapt gracefully to small screens
-- Controls hint hidden on mobile (saves space)
-- Buoy detail panel switches to a **bottom-sheet** layout on phones
+> **That is the difference between reading a weather report and watching a live radar. AquaLink makes the invisible, instantly understandable.**
 
 ---
 
-## 🏗️ Architecture
+## ✨ Features & Visual Tour
 
+We don’t just show data; we make it tangible. Here is how AquaLink brings the ocean to your screen.
+
+### 🌐 Interactive 3D Globe
+A full Earth rendered with high-res NASA satellite textures (diffuse, normal, and specular maps), wrapped in a custom additive-blended atmosphere glow shader.
+<p float="left">
+  <img src="public/ss_02_zoomed.png" width="49%" />
+  <img src="public/ss_03_rotated.png" width="49%" />
+</p>
+
+### 🌡️ Live Heat Stress Shaders
+The ocean surface is a dynamic mesh driven by a custom GLSL shader. It maps normalized temperature data to a 5-stop color ramp (Cold Polar Blue → Heat Stress Red) and animates the surface with vertex displacement waves.
+<p float="left">
+  <img src="public/ss_09_heat_legend.png" width="49%" />
+  <img src="public/ss_06_max_waves.png" width="49%" />
+</p>
+
+### 📍 Smart Buoys & Live Telemetry
+Up to 80+ buoys are rendered simultaneously using an highly optimized `InstancedMesh` (a single GPU draw call). 
+- **Cyan**: Normal
+- **Red**: Alert (heat stress)
+- **Grey**: Offline
+
+**Click any buoy** to slide open the telemetry panel showing live temperature, salinity, depth, and GPS coordinates.
+<p float="left">
+  <img src="public/ss_07_alert_buoys.png" width="49%" />
+  <img src="public/ss_04_buoy_panel.png" width="49%" />
+</p>
+
+### 🪸 Coral Reef Protection
+Major vulnerable reef systems (like the Coral Triangle or Maldives Atoll) are pinned directly on the globe with glowing, pulsing markers. Hovering reveals their names, providing instant geographical context to nearby temperature spikes.
+<p float="left">
+  <img src="public/ss_08_hud_stats.png" width="49%" />
+  <!-- Reusing a good shot that shows the globe well for the second half -->
+  <img src="public/ss_10_stars.png" width="49%" />
+</p>
+
+### 🎛️ Real-Time Shader Debugging (Leva)
+A floating control panel allows operators (or developers) to tweak the GLSL uniform values in real-time. Adjust the wave height, wave frequency, and water opacity on the fly to see the shader react instantly.
+<div align="center">
+  <img src="public/ss_05_leva.png" width="60%" />
+</div>
+
+---
+
+## 🧠 Technical Deep Dive
+
+### High-Performance WebGL
+Rendering 100s of 3D objects in a browser can quickly drop framerates. AquaLink stays at a buttery smooth 60fps through careful optimization:
+1. **Instanced Rendering:** All 80+ buoy markers share a single `<instancedMesh>`. We update an `InstanceMatrix` buffer instead of looping through and rendering 80 separate geometries.
+2. **Data Textures:** Passing a grid of temperature data to a shader can be expensive. We construct a `THREE.DataTexture` backed by a `Uint8Array` (encoding data into the Red channel). This ensures maximum compatibility even on older mobile GPUs that lack the `OES_texture_float` extension.
+
+### The Water Shader Magic
+The water surface is a transparent sphere (`radius = 1.008`) sitting just above the Earth mesh.
+- **Vertex Shader:** Displaces each vertex along its normal direction using overlapping sine/cosine waves driven by `uTime`.
+- **Fragment Shader:** Samples the temperature `DataTexture`, maps it to a color ramp, and calculates a Fresnel rim glow to capture the luminous "ocean horizon" effect at grazing angles.
+
+### Architecture Data Flow
+```text
+[ IoT Smart Buoys ] ──(telemetry)──> [ Next.js API Routes ] 
+                                           │
+                                     (polls every 30s)
+                                           ▼
+[ UI Overlays ] <──(reads state)──> [ Zustand Global Store ] ──(drives)──> [ 3D WebGL Canvas ]
+  - HUD Panel                         - buoys[]                              - GlobeMesh
+  - Buoy Details                      - heatStressGrid[]                     - WaterShader
+  - Legend                            - reefs[]                              - InstancedBuoys
 ```
-┌─────────────────────────────────────────────────────────┐
-│                    Browser (Next.js App)                 │
-│                                                          │
-│  ┌──────────────┐     ┌──────────────────────────────┐  │
-│  │  UI Overlays │     │       3D Canvas (R3F)        │  │
-│  │  ─────────── │     │  ─────────────────────────   │  │
-│  │  HUD.tsx     │     │  Globe.tsx  (Earth mesh)     │  │
-│  │  BuoyPanel   │     │  WaterSurface.tsx (GLSL)     │  │
-│  │  ErrorBound  │     │  BuoyMarkers.tsx (Instanced) │  │
-│  └──────────────┘     │  ReefMarkers.tsx (Pins)      │  │
-│                       │  Stars, Lights, OrbitControls│  │
-│                       └──────────────────────────────┘  │
-│                                   │                      │
-│                     ┌─────────────▼──────────────┐       │
-│                     │    Zustand Global Store    │       │
-│                     │  buoys │ heatGrid │ reefs  │       │
-│                     └─────────────┬──────────────┘       │
-│                                   │                      │
-│                     ┌─────────────▼──────────────┐       │
-│                     │      aquaLinkApi.ts        │       │
-│                     │  fetchBuoys / fetchHeat /  │       │
-│                     │  fetchReefs  (+ mock data) │       │
-│                     └─────────────┬──────────────┘       │
-└───────────────────────────────────┼─────────────────────┘
-                                    │ HTTP (every 30s)
-                     ┌──────────────▼──────────────┐
-                     │    Backend API (optional)   │
-                     │  /api/buoys                 │
-                     │  /api/heat-stress           │
-                     │  /api/reefs                 │
-                     └─────────────────────────────┘
-                                    ▲
-                     ┌──────────────┴──────────────┐
-                     │   IoT Smart Buoys (Real)    │
-                     │  Temp • Salinity • Depth    │
-                     │  GPS • Battery • Status     │
-                     └─────────────────────────────┘
-```
-
----
-
-## 🗂️ Project Structure
-
-```
-src/
-├── app/
-│   ├── page.tsx          # Main dashboard page
-│   ├── layout.tsx        # Root layout + metadata
-│   └── globals.css       # Glass-card UI system + global styles
-│
-├── components/
-│   ├── 3d/
-│   │   ├── Scene.tsx         # Three.js Canvas, lighting, data bootstrap
-│   │   ├── Globe.tsx         # Earth sphere + atmosphere glow shader
-│   │   ├── WaterSurface.tsx  # Custom GLSL water + temperature heat map
-│   │   ├── BuoyMarkers.tsx   # InstancedMesh buoy cones + click handler
-│   │   └── ReefMarkers.tsx   # Reef pin markers with hover labels
-│   └── ui/
-│       ├── HUD.tsx           # Brand card, buoy stats, heat legend
-│       ├── BuoyPanel.tsx     # Slide-in buoy telemetry detail panel
-│       └── ErrorBoundary.tsx # WebGL crash fallback screen
-│
-├── lib/
-│   ├── aquaLinkApi.ts    # API fetchers + full offline mock data
-│   └── geoUtils.ts       # lat/lng → Vector3, temperature texture builder
-│
-├── shaders/
-│   ├── waterSurface.vert # Wave displacement vertex shader
-│   └── waterSurface.frag # Temperature color ramp + Fresnel fragment shader
-│
-└── store/
-    └── oceanStore.ts     # Zustand store (buoys, heatGrid, reefs, selectedBuoy)
-```
-
----
-
-## ⚙️ Tech Stack
-
-| Layer | Technology |
-|---|---|
-| Framework | [Next.js 16](https://nextjs.org/) (App Router + Turbopack) |
-| Language | TypeScript 5 |
-| 3D Engine | [Three.js](https://threejs.org/) via [@react-three/fiber](https://docs.pmnd.rs/react-three-fiber) |
-| 3D Helpers | [@react-three/drei](https://github.com/pmndrs/drei) (OrbitControls, Stars, Html, useTexture) |
-| State | [Zustand](https://github.com/pmndrs/zustand) |
-| Debug Controls | [Leva](https://github.com/pmndrs/leva) |
-| Styling | Tailwind CSS v4 + custom glass-morphism system |
-| Shaders | Custom GLSL (vertex + fragment) via `shaderMaterial` |
 
 ---
 
 ## 🚀 Getting Started
 
-### Prerequisites
-- Node.js ≥ 18
-- npm ≥ 9
-
-### Installation
+Want to run the Digital Twin locally? You only need Node.js installed.
 
 ```bash
-# Clone the repo
-git clone https://github.com/your-username/aqaiklink.git
-cd aqaiklink
+# 1. Clone the repository
+git clone https://github.com/Suraj-kummar/AquaLink-.git
+cd AquaLink-
 
-# Install dependencies
+# 2. Install dependencies
 npm install
 
-# Start the development server
+# 3. Start the development server
 npm run dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) in your browser.
-
-### Environment Variables (Optional)
-
-By default, AquaLink runs fully offline with realistic mock data.  
-To connect a real backend API, create a `.env.local` file:
-
-```env
-NEXT_PUBLIC_AQUAINK_API_URL=https://your-api.example.com
-```
-
-When this variable is set, AquaLink will call:
-- `GET /api/buoys` → returns `BuoyData[]`
-- `GET /api/heat-stress` → returns `HeatCell[]`
-- `GET /api/reefs` → returns `ReefCoord[]`
+Open [http://localhost:3000](http://localhost:3000) in your browser. The app will automatically fall back to a realistic mock data generator, so the dashboard will populate with active buoys and heat stress maps immediately.
 
 ---
 
-## 🔌 API Data Contracts
+## 🏢 Real-World Use Cases
 
-```typescript
-// A smart buoy sensor reading
-interface BuoyData {
-  id: string;           // e.g. "buoy-047"
-  lat: number;          // GPS latitude (-90 to 90)
-  lng: number;          // GPS longitude (-180 to 180)
-  temperature: number;  // Water temp in °C
-  salinity: number;     // Salinity in PSU (practical salinity units)
-  depth: number;        // Depth in meters
-  status: 'normal' | 'alert' | 'offline';
-  lastUpdated: string;  // ISO 8601 timestamp
-}
-
-// A cell in the ocean heat stress grid
-interface HeatCell {
-  lat: number;
-  lng: number;
-  temperature: number;  // Normalized 0–1 (0 = polar cold, 1 = extreme heat)
-}
-
-// A coral reef anchor point
-interface ReefCoord {
-  id: string;
-  name: string;         // e.g. "Great Barrier Reef"
-  lat: number;
-  lng: number;
-}
-```
+- 🪸 **Coral Reef Conservation:** Monitor heat stress near reef systems to predict and mitigate bleaching events.
+- 🛢️ **Offshore Energy:** Track localized ocean conditions around oil rigs and wind farms for structural safety.
+- 🚢 **Maritime Routing:** Identify rogue current or salinity anomaly zones along major shipping routes.
+- 🎓 **Marine Research:** Visualize multi-buoy datasets spatially, replacing static charts with interactive exploration.
 
 ---
 
-## 🧠 How the Shader Works
-
-The water surface is a transparent sphere (`radius = 1.008`) sitting just above the Earth mesh. It uses a custom `ShaderMaterial` with two GLSL programs:
-
-**Vertex shader** — displaces each vertex along its normal direction to create ocean waves:
-```glsl
-float wave1 = sin(position.x * uWaveFrequency + uTime * 1.2) * uWaveAmplitude;
-float wave2 = cos(position.z * uWaveFrequency * 0.8 + uTime * 0.9) * uWaveAmplitude * 0.6;
-vec3 displacedPosition = position + normal * (wave1 + wave2);
-```
-
-**Fragment shader** — samples a `DataTexture` (temperature grid) and maps it through a 5-stop color ramp:
-```glsl
-// Cold polar → Cyan cool → Green temperate → Yellow warm → Red extreme
-vec3 temperatureColor(float t) { ... }
-```
-
-The temperature texture uses `Uint8Array` (not `Float32Array`) for maximum WebGL compatibility — avoids the `OES_texture_float` extension requirement which fails on many mobile GPUs.
-
----
-
-## 🆚 How AquaLink Differs from Other Tools
-
-| Capability | MATLAB Oceanography | Generic Dashboards | AquaLink |
-|---|---|---|---|
-| Real-time 3D globe | ❌ | ❌ | ✅ |
-| Heat stress color map | ✅ (2D plots) | ❌ | ✅ (3D on globe) |
-| Click buoy → live data | ❌ | ❌ | ✅ |
-| Reef risk overlay | ❌ | ❌ | ✅ |
-| Runs in any browser | ❌ | ✅ | ✅ |
-| No installation needed | ❌ | ✅ | ✅ |
-| Custom shader rendering | ❌ | ❌ | ✅ |
-| Open source / extensible | ❌ | Varies | ✅ |
-
----
-
-## 🌏 Real-World Use Cases
-
-- 🪸 **Coral Reef Conservation** — Monitor heat stress near reef systems and get instant alerts before bleaching events
-- 🛢️ **Offshore Energy** — Track ocean conditions around oil rigs and wind farms
-- 🚢 **Maritime Safety** — Identify rogue current or salinity anomaly zones along shipping routes
-- 🎓 **Marine Research** — Visualize multi-buoy datasets spatially instead of comparing spreadsheets
-- 🏄 **Coastal Management** — Monitor water quality in real time for beach safety decisions
-
----
-
-## 📄 License
-
-MIT © AquaLink Contributors
-
----
-
-> *"AquaLink is to ocean monitoring what live traffic radar was to navigation — it makes the invisible, instantly understandable."*
+<div align="center">
+  <p><i>Built with standard web technologies to push the limits of what a browser can visualize.</i></p>
+  <p>MIT © AquaLink Contributors</p>
+</div>
