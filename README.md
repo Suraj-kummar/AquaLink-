@@ -13,7 +13,7 @@
   <br />
 </div>
 
-![Main Dashboard](public/ss_01_main.png)
+![AquaLink Live WebGL Demo](public/hero_animation.webp)
 
 AquaLink is a browser-based **Digital Twin** of the ocean — an interactive 3D globe that mirrors the real state of the sea by ingesting telemetry from smart buoy sensors. It turns raw data into instant, visual intelligence for marine scientists, reef conservationists, and offshore operators.
 
