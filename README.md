@@ -6,6 +6,14 @@ AquaLink is a browser-based **Digital Twin** of the ocean — a live, interactiv
 
 ---
 
+## 📸 Dashboard Preview
+
+![AquaLink Digital Twin – Live Dashboard](public/screenshot.png)
+
+> *3D Earth with heat stress ocean layer, 80 smart buoy markers, reef pins, live stats HUD, and real-time Leva debug controls.*
+
+---
+
 ## 🌍 The Real-World Problem We Solve
 
 ### Imagine this scenario:
