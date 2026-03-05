@@ -6,13 +6,40 @@ AquaLink is a browser-based **Digital Twin** of the ocean — a live, interactiv
 
 ---
 
-## 📸 Dashboard Preview
+## 📸 Dashboard Screenshots
 
-![AquaLink Digital Twin – Live Dashboard](public/screenshot.png)
+### 🌐 Main Dashboard — Full Overview
+![Main Dashboard](public/ss_01_main.png)
 
-> *3D Earth with heat stress ocean layer, 80 smart buoy markers, reef pins, live stats HUD, and real-time Leva debug controls.*
+### 🔍 Zoomed In — Buoy Detail
+![Zoomed In View](public/ss_02_zoomed.png)
+
+### 🔄 Globe Rotated — Pacific Ocean View
+![Pacific Ocean View](public/ss_03_rotated.png)
+
+### 📍 Smart Buoy — Live Telemetry Panel
+![Buoy Panel Open](public/ss_04_buoy_panel.png)
+
+### 🎛️ Leva Debug Panel — Real-Time Shader Controls
+![Leva Debug Controls](public/ss_05_leva.png)
+
+### 🌊 Maximum Wave Height — Shader in Action
+![Max Wave Height](public/ss_06_max_waves.png)
+
+### 🔴 Alert Buoys — Heat Stress Detected
+![Alert Buoys View](public/ss_07_alert_buoys.png)
+
+### 📊 HUD Stats — Live Buoy Counts
+![HUD Stats](public/ss_08_hud_stats.png)
+
+### 🌡️ Heat Stress Index Legend
+![Heat Stress Legend](public/ss_09_heat_legend.png)
+
+### ✨ Globe in Deep Space — Starfield View
+![Stars View](public/ss_10_stars.png)
 
 ---
+
 
 ## 🌍 The Real-World Problem We Solve
 
