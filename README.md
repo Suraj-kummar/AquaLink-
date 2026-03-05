@@ -21,12 +21,12 @@ AquaLink is a browser-based **Digital Twin** of the ocean — an interactive 3D 
 
 <h2 style="color: #0072ff; border-bottom: 2px solid #00c6ff; padding-bottom: 8px;">🌍 The Problem We Solve: From Spreadsheets to Intelligence</h2>
 
-### ❌ The Old Way (Reactionary)
+### ❌ Before (Reactionary)
 It’s Tuesday morning. A marine biologist at a coastal protection agency receives an email with 80 CSV files—one from each buoy deployed overnight. By 10 AM, she opens spreadsheet #47 and notices buoy `AUL-047` recorded a water temperature of **31.8°C** at 2 AM. That’s above the coral bleaching threshold. 
 
 She escalates the finding. The response team is dispatched on Thursday. By then, the coral has already begun bleaching.
 
-### ✅ The AquaLink Way (Proactive)
+### ✅ After (Proactive)
 She opens the AquaLink dashboard at 7 AM. The globe is spinning. Buoy `AUL-047` is **flashing red**, surrounded by a warm-orange heat zone on the water. She clicks the buoy—live temperature, salinity, and depth pop up instantly. She hovers over a glowing teal pin nearby: *Great Barrier Reef (12km away)*.
 
 The response team is dispatched by 7:15 AM.
