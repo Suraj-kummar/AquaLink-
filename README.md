@@ -1,5 +1,5 @@
 <div align="center">
-  <h1>🌊 AquaLink — Ocean Digital Twin Dashboard</h1>
+  <h1 style="background: -webkit-linear-gradient(45deg, #00c6ff, #0072ff); -webkit-background-clip: text; -webkit-text-fill-color: transparent; font-weight: 900; letter-spacing: -1px;">🌊 AquaLink — Ocean Digital Twin Dashboard</h1>
   
   <p><strong>Real-time ocean monitoring. Live 3D visualization. Powered by IoT smart buoys.</strong></p>
 
@@ -19,7 +19,7 @@ AquaLink is a browser-based **Digital Twin** of the ocean — an interactive 3D 
 
 ---
 
-## 🌍 The Problem We Solve: From Spreadsheets to Intelligence
+<h2 style="color: #0072ff; border-bottom: 2px solid #00c6ff; padding-bottom: 8px;">🌍 The Problem We Solve: From Spreadsheets to Intelligence</h2>
 
 ### ❌ The Old Way (Reactionary)
 It’s Tuesday morning. A marine biologist at a coastal protection agency receives an email with 80 CSV files—one from each buoy deployed overnight. By 10 AM, she opens spreadsheet #47 and notices buoy `AUL-047` recorded a water temperature of **31.8°C** at 2 AM. That’s above the coral bleaching threshold. 
@@ -35,7 +35,7 @@ The response team is dispatched by 7:15 AM.
 
 ---
 
-## ✨ Features & Visual Tour
+<h2 style="color: #0072ff; border-bottom: 2px solid #00c6ff; padding-bottom: 8px;">✨ Features & Visual Tour</h2>
 
 We don’t just show data; we make it tangible. Here is how AquaLink brings the ocean to your screen.
 
@@ -65,7 +65,7 @@ Up to 80+ buoys are rendered simultaneously using an highly optimized `Instanced
   <img src="public/ss_04_buoy_panel.png" width="49%" />
 </p>
 
-### 🪸 Coral Reef Protection
+<h3 style="color: #00c6ff;">🪸 Coral Reef Protection</h3>
 Major vulnerable reef systems (like the Coral Triangle or Maldives Atoll) are pinned directly on the globe with glowing, pulsing markers. Hovering reveals their names, providing instant geographical context to nearby temperature spikes.
 <p float="left">
   <img src="public/ss_08_hud_stats.png" width="49%" />
@@ -81,7 +81,7 @@ A floating control panel allows operators (or developers) to tweak the GLSL unif
 
 ---
 
-## 🧠 Technical Deep Dive
+<h2 style="color: #0072ff; border-bottom: 2px solid #00c6ff; padding-bottom: 8px;">🧠 Technical Deep Dive</h2>
 
 ### High-Performance WebGL
 Rendering 100s of 3D objects in a browser can quickly drop framerates. AquaLink stays at a buttery smooth 60fps through careful optimization:
@@ -107,7 +107,7 @@ The water surface is a transparent sphere (`radius = 1.008`) sitting just above 
 
 ---
 
-## 🚀 Getting Started
+<h2 style="color: #0072ff; border-bottom: 2px solid #00c6ff; padding-bottom: 8px;">🚀 Getting Started</h2>
 
 Want to run the Digital Twin locally? You only need Node.js installed.
 
@@ -127,7 +127,7 @@ Open [http://localhost:3000](http://localhost:3000) in your browser. The app wil
 
 ---
 
-## 🏢 Real-World Use Cases
+<h2 style="color: #0072ff; border-bottom: 2px solid #00c6ff; padding-bottom: 8px;">🏢 Real-World Use Cases</h2>
 
 - 🪸 **Coral Reef Conservation:** Monitor heat stress near reef systems to predict and mitigate bleaching events.
 - 🛢️ **Offshore Energy:** Track localized ocean conditions around oil rigs and wind farms for structural safety.
